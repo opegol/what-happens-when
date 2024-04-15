@@ -709,3 +709,22 @@ page rendering and painting.
 .. _`downgrade attack`: http://en.wikipedia.org/wiki/SSL_stripping
 .. _`OSI Model`: https://en.wikipedia.org/wiki/OSI_model
 .. _`Spanish`: https://github.com/gonzaleztroyano/what-happens-when-ES
+
+DNS operations over UDP vs over TCP/IP
+The Domain Name System (DNS) can operate under both the User Datagram Protocol (UDP) and the Transmission Control Protocol (TCP), and they differ primarily in their characteristics and usage:
+
+UDP (User Datagram Protocol):
+
+UDP is a connectionless, unreliable transport protocol.
+DNS typically uses UDP for its query/response mechanism due to its low overhead and efficiency for small data exchanges.
+UDP is faster than TCP because it does not establish a connection before transmitting data and does not perform error checking or retransmission of lost packets.
+DNS messages sent over UDP are limited to a maximum size (usually 512 bytes), which may require additional mechanisms (such as DNS fragmentation) for larger responses.
+UDP is suitable for DNS queries, which are usually small and do not require reliable delivery or ordered delivery of packets.
+
+TCP (Transmission Control Protocol):
+
+TCP is a connection-oriented, reliable transport protocol.
+DNS uses TCP primarily for zone transfers (transferring large amounts of DNS data between servers) and for handling DNS messages larger than the maximum size allowed by UDP.
+TCP establishes a connection between the client and the server before transmitting data, ensuring reliable and ordered delivery of packets.
+TCP performs error checking, retransmission of lost packets, and flow control to maintain the quality and integrity of the data transmission.
+TCP is suitable for transferring large DNS data sets or handling DNS queries/responses that exceed the size limitations of UDP.
